@@ -1,0 +1,33 @@
+{% extends 'main/template.html' %}
+
+{% block title %}
+{{ title }}
+{% endblock %}
+
+{% block body %}
+
+    <h1>Главная</h1>
+    <p>Приветственный текст.</p>
+
+    {% if products %}
+        {% for prod in products %}
+            <br>
+            <div class="container">
+                <div class="card" style="width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ prod.title }}</h5>
+                        <p class="card-text">{{ prod.description }}</p>
+                        <p class="card-text">Цена: {{ prod.price }}</p>
+                        <!-- кнопка для перехода по ссылке
+                        <a href="/" class="btn btn-primary"></a>
+                        -->
+                    </div>
+                </div>
+            </div>
+            <br>
+        {% endfor %}
+    {% else %}
+        <p>Товаров пока нет.</p>
+    {% endif %}
+
+{% endblock %}

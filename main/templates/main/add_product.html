@@ -1,0 +1,36 @@
+{% extends 'main/template.html' %}
+
+{% block title %}
+{{ title }}
+{% endblock %}
+
+{% block body %}
+
+    <h1>Добавить новый товар</h1>
+
+    <form method="post">
+
+        {% csrf_token %}
+
+        <br>
+        {{ form.title }}
+        <br>
+        {{ form.description }}
+        <br>
+        {{ form.price }}
+        <br>
+
+<!--        <input type="text" placeholder="название" class="form-control"><br>-->
+<!--        <textarea placeholder="описание" class="form-control"></textarea><br>-->
+<!--        <input type="text" placeholder="цена" class="form-control"><br>-->
+        {% if error %}
+            <br>
+            <span>{{ error }}</span>
+        {% endif %}
+
+        <br>
+        <button type="submit" class="btn btn-success">Добавить в базу данных</button>
+
+    </form>
+
+{% endblock %}
